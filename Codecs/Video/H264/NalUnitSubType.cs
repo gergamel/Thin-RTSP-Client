@@ -14,6 +14,6 @@ namespace Media.Codecs.Video.H264
 
         public const byte AggregationPacket = 0x02;
 
-        public static bool IsReserved(byte subType) { return subType == NalUnitSubType.Reserved || subType >= 3 && subType <= Common.Binary.FiveBitMaxValue; }
+        public static bool IsReserved(byte subType) { return subType == NalUnitSubType.Reserved || subType >= 3 && subType <= Media.Common.Binary.FiveBitMaxValue; }
     }
 }

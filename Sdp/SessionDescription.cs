@@ -50,7 +50,7 @@ namespace Media.Sdp
     /// </summary>
     /// 
     ///https://msdn.microsoft.com/en-us/library/bb758954(v=office.13).aspx
-    public class SessionDescription : Common.BaseDisposable, IEnumerable<SessionDescriptionLine>
+    public class SessionDescription : Media.Common.BaseDisposable, IEnumerable<SessionDescriptionLine>
     {
         #region Statics
 

@@ -47,7 +47,7 @@ namespace Media.Sdp
     /// Represents a TimeDescription with optional Repeat times.
     /// Parses and Creates.
     /// </summary>
-    public class TimeDescription : Common.BaseDisposable, IEnumerable<SessionDescriptionLine>
+    public class TimeDescription : Media.Common.BaseDisposable, IEnumerable<SessionDescriptionLine>
     {
         /* Reference
          https://tools.ietf.org/html/rfc4566#page-17

@@ -47,7 +47,7 @@ namespace Media.Sdp
     /// Represents the MediaDescription in a Session Description.
     /// Parses and Creates.
     /// </summary>
-    public class MediaDescription : Common.BaseDisposable, IEnumerable<SessionDescriptionLine>
+    public class MediaDescription : Media.Common.BaseDisposable, IEnumerable<SessionDescriptionLine>
     {
         //Nested type for MediaDescriptionLine?
 
