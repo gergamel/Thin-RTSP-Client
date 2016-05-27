@@ -222,11 +222,14 @@ namespace RTSP_Client_Test
 			}
 			else
 			{
-				if (!m_rtspClient.LivePlay)
-				{
-					label2.Text = "Remaining: " +
-						(DateTime.UtcNow - m_rtspClient.StartedPlaying.Value).Subtract(m_rtspClient.EndTime.Value).ToString();
-				}
+        if (m_rtspClient != null)
+        {
+          if (!m_rtspClient.LivePlay)
+          {
+            label2.Text = "Remaining: " +
+              (DateTime.UtcNow - m_rtspClient.StartedPlaying.Value).Subtract(m_rtspClient.EndTime.Value).ToString();
+          }
+        }
 				/*
 				RTSPMessagesTextBox.AppendText("RTSPClient_RtcpPacketReceieved" + Environment.NewLine);
 				RTSPMessagesTextBox.AppendText("@" + packet.Created.ToUniversalTime().ToString() + " - " + packet.ToString() + Environment.NewLine);
@@ -248,11 +251,14 @@ namespace RTSP_Client_Test
 			}
 			else
 			{
-				if (!m_rtspClient.LivePlay)
-				{
-					label2.Text = "Remaining: " +
-						(DateTime.UtcNow - m_rtspClient.StartedPlaying.Value).Subtract(m_rtspClient.EndTime.Value).ToString();
-				}
+        if ((m_rtspClient != null))
+        {
+          if (!m_rtspClient.LivePlay)
+          {
+            label2.Text = "Remaining: " +
+              (DateTime.UtcNow - m_rtspClient.StartedPlaying.Value).Subtract(m_rtspClient.EndTime.Value).ToString();
+          }
+        }
 				RTSPMessagesTextBox.AppendText("RTSPClient_RtpPacketReceieved" + Environment.NewLine);
 				RTSPMessagesTextBox.AppendText("@" + packet.Created.ToUniversalTime().ToString() + " - " + packet.ToString() + Environment.NewLine);
 

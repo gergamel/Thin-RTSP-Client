@@ -435,15 +435,34 @@ namespace Media.Sdp
 
             //If there is a control line in the SDP it contains the URI used to setup and control the media
             if (controlLine != null)
-            {  
-                //Todo, make typed line for controlLine
-                string controlPart = controlLine.Parts.Last(); //controlLine.Parts.Where(p => p.StartsWith(AttributeFields.Control)).FirstOrDefault();
+            {
 
+        //Todo, make typed line for controlLine
+        // GC: Rewrote this somewhat because it was destroying valid absolute URL provided by AXIS media server in the MediaDescription Control field.
+        //     This make break media servers which use a relative path. TODO: Test with other servers.
+        string controlPart = "";
+        if (controlLine.Parts.Count() > 2)
+        {
+          foreach (string part in controlLine.Parts)
+          {
+            if (part == "control") { }
+            else if (part == "rtsp")
+              controlPart += part + ":";
+            else
+              controlPart += part;
+          }
+        } else
+        {
+          controlPart = controlLine.Parts.Last();
+        }
+        
                 //If there is a controlPart in the controlLine
                 if (false == string.IsNullOrWhiteSpace(controlPart))
                 {
                     //Prepare the part
-                    controlPart = controlPart.Split(Media.Sdp.SessionDescription.ColonSplit, 2, StringSplitOptions.RemoveEmptyEntries).Last();
+                    // GC: Commented this out because it was destroying valid absolute URL provided by AXIS media server in the MediaDescription Control field.
+                    //     This make break media servers which use a relative path. TODO: Test with other servers.
+                    //controlPart = controlPart.Split(Media.Sdp.SessionDescription.ColonSplit, 2, StringSplitOptions.RemoveEmptyEntries).Last();
 
                     //Create a uri
                     Uri controlUri = new Uri(controlPart, UriKind.RelativeOrAbsolute);
